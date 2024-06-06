@@ -1,0 +1,43 @@
+/*难点： 输入三个/两个数据 AND 两个数据的运算符是上一个运算符 */
+#include <iostream> //cin & cout 用iostream
+#include <cstring> //memset & strlen 用cstring
+#include <cstdio> //sscanf & sprintf 用cstdio
+#include <string>
+using namespace std;
+int n, x,y;
+char s[10];
+char res[20010];
+int main(){
+	cin>>n;
+	char a;
+	string len;
+	for(int i=0;i<n;i++){
+		cin>>s;
+		if(s[0]>='a' && s[0]<='z'){
+			a=s[0];
+			cin>>x>>y;
+			
+			
+		}
+		else{
+			sscanf(s,"%d", &x);//s是数字就存到x
+			cin>>y;
+			
+		}
+		memset(res,0,sizeof(s));
+		
+			if(a=='a'){
+				sprintf(res,"%d+%d=%d", x, y, x+y);
+			}
+			else if(a=='b')
+				sprintf(res,"%d-%d=%d", x, y, x-y);
+			else if(a=='c')
+				sprintf(res,"%d*%d=%d", x, y, x*y);
+			cout<<res<<endl<<strlen(res)<<endl;
+	}
+
+	
+	
+	
+	return 0;
+}
