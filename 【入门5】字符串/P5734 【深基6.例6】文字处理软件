@@ -1,0 +1,53 @@
+#include<iostream>
+#include <cstdio>
+#include  <cstring>
+using namespace std;
+const int N=110;
+char s[N], in[N];
+int main(){
+	
+	int n;
+	cin>>n>>s;
+	for(int i=0;i<n;i++){
+		int op;
+		cin>>op;
+		if(op==1){
+			cin>>in;
+			strcat(s,in);
+			cout<<s<<endl;
+		}
+		else if(op==2){
+			int a, b;
+			cin>>a>>b;
+			s[a+b]='\0';
+			strcpy(in,&s[a]);
+			strcpy(s,in);
+			cout<<s<<endl;
+			
+		}
+		else if(op==3){
+			int a;
+			cin>>a;
+			cin>>in;
+			strcat(in,&s[a]);
+			s[a]='\0';
+			strcat(s,in);
+			cout<<s<<endl;
+			
+		}
+		else{
+			cin>>in;
+			char *t=strstr(s,in);	
+			if(t!=NULL){
+				cout<<(int)(t-s)<<endl;
+			}
+			else cout<<"-1"<<endl;
+		}
+	}
+	
+	
+	
+	
+	
+	return 0;
+}
