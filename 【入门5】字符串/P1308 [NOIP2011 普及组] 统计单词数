@@ -1,0 +1,52 @@
+/*KMP算法，没算出来*/
+
+
+#include<iostream>
+#include <cstdio>
+#include  <cstring>
+#include <cctype>  // 包含 isupper 函数
+using namespace std;
+const int N=1000010;
+char s[N], p[N];
+bool isfen(char c){
+	return !isalpha(c);
+}
+int main(){
+
+	
+//	cin>>p;
+//	gets(s);
+ 	cin.getline(p + 1, N);
+    cin.getline(s + 1, N);
+	cout<<p<<endl<<s;
+	int n=strlen(s+1);
+	int m=strlen(p+1);
+	
+		for(int i=0;i<strlen(s);i++)
+			if(isupper(s[i])) tolower(s[i]);
+	int ne[N];
+	for(int i=2,j=0;i<=m;i++){
+		while(j && p[i]!=p[j+1]) j=ne[j];
+		if(p[i]==p[j+1]) j++;
+		ne[i]=j;
+	}
+	int count=0;
+	int index=-1;
+	for(int i=1,j=0;i<=n;i++){
+		while(j && s[i]!=p[j+1]) j=ne[j];
+		if(s[i]==p[j+1]) j++;
+		if(j==m) {
+			count++;
+			index=i-m+1;
+			j=ne[j];
+			cout<<count<<endl<<index;
+		}
+	}
+	
+	
+	
+	
+	
+	
+	return 0;
+}
