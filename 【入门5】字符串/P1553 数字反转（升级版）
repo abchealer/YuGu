@@ -1,0 +1,83 @@
+/*substr(s.begin(),s.end())
+s.find('/')
+s.erase(s.begin(),s.end())
+reverse(s.begin(),s.end())
+"字符串"
+'字符'
+*/
+
+#include <bits/stdc++.h>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+string reverse1(string s){
+	reverse(s.begin(),s.end());
+	int count=0;
+	for(int i=0;i<s.size();i++){
+		if(s[i]=='0') count++;
+		else break;
+	}
+	s.erase(s.begin(),s.begin()+count); 
+	return (s != "" ? s : "0"); 	//如果s！=空字符串（跟空格不一样），输出s否则输出0； 
+}
+string reverse2(string s){
+	int ct=0;
+	for(int i=s.size()-1;i>=0;i--){
+		if(s[i]=='0') ct++;
+		else break;
+	}
+	s.erase(s.end()-ct,s.end());
+	return (s != "" ? s : "0"); 
+}
+int main(){
+	string s;
+	cin>>s;
+//	s=reverse1(s);
+//	cout<<s; 
+int t=0;
+	for(int i=0;i<s.size();i++){
+		if(s[i]=='.'){
+			t=1;
+			break;
+		} 
+		else if(s[i]=='/'){
+			 t=2;
+			 			break;
+
+		}
+		else if(s[i]=='%'){
+			t=3;
+						break;
+
+		} 
+	}	
+	//cout<<t<<endl;
+	if(t==0) cout<<reverse1(s);
+	else if(t==1){
+		string s1=s.substr(0,s.find('.'));
+		s1=reverse1(s1);
+		cout<<s1<<".";
+		string s2=s.substr(s.find('.')+1);
+		s2=reverse1(s2);
+		s2=reverse2(s2);
+		
+		cout<<s2;
+	}
+	else if(t==2){
+		string s1=s.substr(0,s.find('/'));
+		s1=reverse1(s1);
+		cout<<s1<<"/";
+		string s2=s.substr(s.find('/')+1);
+		s2=reverse1(s2);
+		s2=reverse2(s2);
+		cout<<s2;
+	}
+	else if(t==3){
+		string s3=s.substr(0,s.find("%"));
+		cout<<reverse1(s3)<<"%";
+	}
+	
+	
+	return 0;
+}
