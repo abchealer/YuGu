@@ -1,0 +1,27 @@
+/*一开始思路竟然是kmp大法*/
+//思路：先把VK变xy，后遇到VV||KK，sum+1，return。 
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+	int n;
+	char c[110];
+	cin>>n>>c;
+	int sum=0;
+	for(int i=0;i<strlen(c);i++){
+		if(c[i]=='V' && c[i+1]=='K')
+		{
+			c[i]='x';
+			c[i+1]='y';
+			sum+=1;
+		}
+	}
+	//cout<<c;
+	for(int i=0;i<strlen(c);i++){
+		if(c[i]=='V'&&c[i+1]=='V'||c[i]=='K'&&c[i+1]=='K'){
+			sum+=1;
+			break;
+		}
+	}
+	cout<<sum;
+	return 0;
+}
