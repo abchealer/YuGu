@@ -1,0 +1,40 @@
+/*
+1.map使用：可以用
+2.sort(arr,arr+n)排序arr[0]到arr[n];vector数组ver，就是sort(ver.begin(),ver.end()) 
+3. 
+*/
+#include <bits/stdc++.h>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
+#include<map> 
+using namespace std;
+map<string ,int>q;
+int k,st[66];
+int top=0;
+int main(){
+	string s;
+	q["one"]=1;q["two"]=2;q["three"]=3;q["four"]=4;q["five"]=5;q["six"]=6;q["seven"]=7;q["eight"]=8;q["nine"]=9;q["ten"]=10;
+     q["eleven"]=11;q["twelve"]=12;q["thirteen"]=13;q["fourteen"]=14;q["fifteen"]=15;q["sixteen"]=16;q["seventeen"]=17;q["eighteen"]=18;q["nineteen"]=19;q["twenty"]=20;
+     q["a"]=1;q["both"]=2;q["another"]=1;q["first"]=1;q["second"]=2;q["third"]=3;
+	for(int i=0;i<6;i++){
+		cin>>s;
+		if(q[s]){
+			k=q[s]*q[s]%100;
+			if(k==0) continue;
+			st[top++]=k;
+		}
+		
+	}
+	sort(st,st+top);
+	cout<<st[0];
+	for(int i=1;i<top;i++){
+	 	if(st[i]<10)cout<<0;/*这里的 for 循环确保格式化输出，
+		 具体地，如果数字小于 10，则在前面加 0，否则直接输出该数字。*/ 
+	 	cout<<st[i];
+	 }
+
+	
+	
+	return 0;
+}
