@@ -1,0 +1,38 @@
+#include <iostream>
+#include <map>
+using namespace std;
+int main(){
+	string h,d;
+	map<string,int> q;
+	q["A"]=1;q["B"]=2;q["C"]=3;q["D"]=4;q["E"]=5;q["F"]=6;q["G"]=7;q["H"]=8;q["I"]=9;q["J"]=10;q["K"]=11;q["L"]=12;q["M"]=13;
+	q["N"]=14;q["O"]=15;q["P"]=16;q["Q"]=17;q["R"]=18;q["S"]=19;q["T"]=20;q["U"]=21;q["V"]=22;q["W"]=23;q["X"]=24;q["Y"]=25;q["Z"]=26;
+	int sum1=1, sum2=1;
+	cin>>h>>d;
+	for(int i=0;i<h.size();i++){
+		
+		string t(1,h[i]);//想查找的话，得是q[字符串]，所以将字符转换成字符串； 
+		//cout<<q[t]<<endl;
+		sum1 *=q[t];
+	} 
+//或边遍历边输入（有测试点不对）
+	 //while(cin>>h){
+		//for(char c : h){
+			//string t(1,c);//想查找的话，得是q[字符串]，所以将字符转换成字符串； 
+			//cout<<q[t]<<endl;
+			//sum1 *=q[t];
+		//}
+	//}	
+	sum1=sum1%47;
+	
+	for(int i=0;i<d.size();i++){
+		
+		string temp(1,d[i]);//想查找的话，得是q[字符串]，所以将字符转换成字符串； 
+		//cout<<q[t]<<endl;
+		sum2 *=q[temp];
+	} 
+	sum2=sum2%47;
+	if(sum1==sum2)
+		cout<<"GO";
+	else cout<<"STAY";
+	return 0;
+}
