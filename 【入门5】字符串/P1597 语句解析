@@ -1,0 +1,42 @@
+#include <iostream>
+#include<map> 
+using namespace std;
+map<char,char> q;
+int main(){
+	
+	string s;
+	cin>>s;
+	q['a']=q['b']=q['c']='0';//没有初始化，部分测试点未过。 
+	for(int i=0;i<s.size();i++){
+		if(s[i]=='='){
+			i++;
+			if(s[i]==';'){
+				cout<<'0'<<" ";	
+			}
+			else {
+				if(s[i]!=';')
+				{
+					if(s[i]>='0' && s[i]<='9' ){
+						//cout<<s[i-3]<<endl;
+						q[s[i-3]]=s[i];
+						//cout<<q[s[i-3]]<<" ";
+						
+					}
+					else{
+						
+						
+							q[s[i-3]]=q[s[i]];
+						
+						
+					}
+					//i++;
+				}
+				
+			}
+		}
+	}
+	cout<<q['a']<<" "<<q['b']<<" "<<q['c']<<" ";	
+	
+	
+	return 0;
+}
