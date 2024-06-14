@@ -12,3 +12,37 @@ int main(){
     
     return  0;
 }
+ 
+/*
+第二种做法：（map） ，错了一个测试点
+ 
+
+#include <iostream>
+#include<map> 
+using namespace std;
+int main(){
+	int n;
+	string s;
+	cin>>n>>s;
+	
+	map<int,char>q;
+	int j=1;
+	for(char i='a';i<='z';i++){
+		q[j]=i;
+		//cout<<q[j]<<endl;
+		j++;//q[j++]不对 
+	}
+	for(int i=0;i<s.size();i++){
+		for(int j=1;j<=26;j++){
+			if(s[i]==q[j]){
+				if((j+n)<=26)
+				cout<<q[j+n];
+				else cout<<q[(j+n)%26]; //超过26一个循环。 
+				
+			}
+		}
+	}
+	
+	return 0;
+}
+*/ 
