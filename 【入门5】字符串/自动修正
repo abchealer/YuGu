@@ -13,3 +13,22 @@ int main(){
     
     return 0;
 }
+/*
+第二种做法：（使用函数） 
+#include <iostream>
+using namespace std;
+int main(){
+	
+	string s;
+	cin>>s;
+	for(int i=0;i<s.size();i++){
+		if(!isupper(s[i])){
+			s[i]=toupper(s[i]);
+		} 
+	}
+	
+	cout<<s;
+	
+	return 0;
+}
+*/
