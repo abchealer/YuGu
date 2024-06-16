@@ -3,9 +3,10 @@ using namespace std;
 int n;
 char s[51];
 int main(){
-    cin>>n>>s;
-    for(int i=0;s[i]!='\0';i++){
-        printf("%c", (s[i]-'a'+n)%26+'a');
+    cin>>n>>s;//1.从s[0]开始输入 
+    for(int i=0;s[i]!='\0';i++){//必须从s[0]开始遍历 
+        printf("%c", (s[i]-'a'+n)%26+'a');//z:（122-97）=25；25%26=25；25+97=122=z； 
+        cout<< (char)((s[i]-'a'+n)%26+'a');//cout需要格式转换 
     }
     
     
