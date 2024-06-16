@@ -14,7 +14,7 @@ int main(){
 }
  
 /*
-第二种做法：（map） ，错了一个测试点
+第二种做法：（map） ，
  
 
 #include <iostream>
@@ -35,9 +35,11 @@ int main(){
 	for(int i=0;i<s.size();i++){
 		for(int j=1;j<=26;j++){
 			if(s[i]==q[j]){
-				if((j+n)<=26)
+				if((j+n)<=26)//1.不超一个循环直接找 
 				cout<<q[j+n];
-				else cout<<q[(j+n)%26]; //超过26一个循环。 
+				else if ((j+n)%26==0)//3.正好一个循环=z 
+				cout<<'z';
+				else cout<<q[(j+n)%26]; //2.超过26一个循环。 
 				
 			}
 		}
@@ -45,4 +47,6 @@ int main(){
 	
 	return 0;
 }
+
+
 */ 
