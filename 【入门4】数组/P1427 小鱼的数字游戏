@@ -1,0 +1,21 @@
+/*数组输入（到0停）+倒序输出数字（reverse是倒序字符串）*/ 
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main(){
+	
+	int a[110];
+	int i,c=0;
+	for(i=0;;i++){//数组输入
+		cin>>a[i];
+		if(a[i]==0){//（到0停）
+			c=i-1;
+			break;	
+		}
+	} 
+	//cout<<i;
+	for(int j=c;j>=0;j--){
+		cout<<a[j]<<" ";
+	}
+	return 0;
+}
