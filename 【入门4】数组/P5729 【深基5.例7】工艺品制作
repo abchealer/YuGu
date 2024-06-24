@@ -1,37 +1,35 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <math.h>
 using namespace std;
 
-const int N = 32;
-
-int A[N][N][N];
-int w,x,h,q;
-int a,b,c,d,e,f;
-int cnt;
-
-void solve() {
-	for(int i=a;i<=d;i++) {
-		for(int j=b;j<=e;j++) {
-			for(int k=c;k<=f;k++) {
-				A[i][j][k] = 1;
+int main(){
+	int w,x,h,q;
+	cin>>w>>x>>h>>q;
+	int x1,y1,z1,x2,y2,z2;
+	
+	int b[w+1][x+1][h+1]={0};
+	int cnt=0;
+	while(q--){
+		cin>>x1>>y1>>z1>>x2>>y2>>z2;
+		for(int i=x1;i<=x2;i++){
+			for(int j=y1;j<=y2;j++){
+				for(int k=z1;k<=z2;k++){
+					b[i][j][k]=1;
+				}
 			}
 		}
+		
 	}
-}
-
-int main() {
-	scanf("%d %d %d %d",&w,&x,&h,&q);
-	for(int i=1;i<=q;i++) {
-		scanf("%d %d %d %d %d %d",&a,&b,&c,&d,&e,&f);
-		solve();
-	}
-	for(int i=1;i<=w;i++) {
-		for(int j=1;j<=x;j++) {
-			for(int k=1;k<=h;k++) {
-				if(A[i][j][k] == 0)
-					++cnt;
-			}
+	for(int i=1;i<=w;i++){
+		for(int j=1;j<=x;j++){
+			for(int k=1;k<=h;k++){
+				//cout<<i<<j<<k<<b[i][j][k]<<endl;
+				if(b[i][j][k]==0)
+				++cnt;
+			} 
 		}
 	}
-	printf("%d\n",cnt);
+	cout<<cnt;
 	return 0;
 }
