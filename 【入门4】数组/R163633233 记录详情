@@ -1,0 +1,31 @@
+/**/
+#include <iostream>
+#include <string>
+#include<cstdio>
+#include <math.h>>
+using namespace std;
+
+int main(){
+	int n, m;
+	cin>>n>>m;
+	int a[1100];// sum[1100];
+	for(int i=1;i<=n;i++){
+		scanf("%d", &a[i]);
+	} 
+	int sum=0;
+	int maxn=10*1e9;
+	for(int i=1;i<=n-m+1;i++){
+		
+		for(int j=i;j<=i+m-1;j++){
+			sum+=a[j];
+		}
+		
+			maxn=min(maxn,sum);
+		
+		//cout<<sum<<" ？？ "<<maxn<<endl;
+			
+		    sum=0;
+	}
+	cout<<maxn;
+	return 0; 
+} 
