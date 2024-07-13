@@ -1,0 +1,34 @@
+#include <iostream>
+#include <map>
+#include <bits/stdc++.h>
+using namespace std;
+long long int n, m;
+const int N=1000010;
+long long int a[N];
+int main() {
+	cin>>n>>m;
+	long long int maxn=0;
+	for(long long int i=0;i<n;i++){
+		scanf("%d", &a[i]);
+		maxn=max(maxn,a[i]);
+	}
+	long long int r=maxn;
+	//cout<<r<<endl;
+	long long int l=0;
+	long long int sum;
+	while(l<r){
+		long long int mid=(r+l)/2;
+//		cout<<l<<" "<<r<<";"<<mid<<" ";
+		sum=0;
+		for(long long int i=0;i<n;i++){
+			 
+			if(mid<=a[i]) sum+=a[i]-mid;
+		}
+//		cout<<sum<<endl;
+		if(sum<m) r=mid;
+		else l=mid+1;
+	}
+	cout<<l-1;
+	return 0;
+    
+}
